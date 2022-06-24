@@ -3,7 +3,7 @@
     It's a system navigating and split load. Ex: You have a billion rqs, you want 50% request to North American's region, 30% request to Asian, 20 % request to Europe. This is job of load balance.
 
   2) Why you need Load Balancer?
-    One server don't have scale for everything. When request up, you need more server. At time, you need one system navigating and navigating. You need load balancer.
+    One server don't have scale for everything. When request up, you need more server. At time, you need one system navigating and split load to this server. You need load balancer.
 
   3) How many type Load Balancer?
     For Hardware, have 2 type: LoadBalance software and LoadBalance Hardware.
