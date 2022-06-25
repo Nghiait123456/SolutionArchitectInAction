@@ -17,6 +17,6 @@
   In one context, you have good choose. But, you remember important parameter for compare opensource LB, it's  1,2,3 for in "these param importance for good L7LB:". Opensource up and down continuous, you don't change it, you need understand L7LB work and remember important param  for compare and good select.
   We setups and benchmark some case.
 
-  4) Detail benchmark in many case and many context, i implements detail in 1_LoadBalancing/L7Loadbalancer/load-balancer-benchmark/README.md.
+  4) Detail benchmark in many case and many context, i implements detail in 1_LoadBalancing/L7Loadbalancer/LoadBalancerBenchmark/README.md
      
 */
