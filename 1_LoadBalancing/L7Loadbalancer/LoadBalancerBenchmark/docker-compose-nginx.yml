@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  nginx:
+    network_mode: host
+    image: bitnami/nginx:1.16.1
+    ports:
+      - 8080:8080
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 200000
+        hard: 200000
+    volumes:
+      - ./nginx/nginx.conf:/opt/bitnami/nginx/conf/nginx.conf

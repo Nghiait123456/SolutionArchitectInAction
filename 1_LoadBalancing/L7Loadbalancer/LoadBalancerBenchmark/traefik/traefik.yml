@@ -1,0 +1,13 @@
+## traefik.yml
+MaxIdleConnsPerHost: 100000
+
+serversTransport:
+  insecureSkipVerify: true
+
+entryPoints:
+  web:
+    address: ":8080"
+
+providers:
+  file:
+    filename: /etc/traefik/host.yml
