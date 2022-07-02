@@ -33,6 +33,23 @@ I have many problem, i custom for this form this base code
           +) when we stop test, cpu is very fast to ~ 0 or 1 %, ram is very fast free => don't have leak ram, leak cpu  <br/>
           +) detail result in link 1_LoadBalancing/L7Loadbalancer/LoadBalancerBenchmark/result/c5_4x_large.md  <br/>
          =>>>>>>>>>>>>>>>>>>>>  Haproxy is very good for rqs, with one instance EC2_C5_4X_larger, we pass and run stable 100.000 rqs, we run stable in longtime, we have 100 M request continuous in 10 to 15 min and cpu and ram is good.  <br/>
-             
-         
+
+
+todo:
+config lam sao de request to one domain
+not one service
+
+point one domain with multiple ip addresses
+
+auto update file config
+
+
+./bench http://localhost:8080 ./benchmark-result/n1-highcpu-8-nginx 10s 300
+
+wrk -t4 -c10 -d10s http://localhost:8000/
+
+change nb thread, maxcount and test again
+nbproc / nbthread ==> test again
+https : test
+*/  
 */
