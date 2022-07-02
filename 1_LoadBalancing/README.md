@@ -49,7 +49,7 @@
 Simple define: L7LB is load balancer work on layer 7: Http, Ftp, Irc, Ssh, Dns,... It's directly interacting with the application backend system.
 
 ## Life circle <a name="LifeCircle"></a>
-In L7LB, endpoint request project to L7LB, L7 keep TCP connect and L7 call to backend app and forward response form backend app to endpoint. 
+In L7LB, endpoint request project to L7LB, L7 keep TCP connect and L7 call to backend app and forward response form backend app to endpoint.  </br>
 ============================== endpoint ---->  L7LB  ----> backend app ===========================
 
 ## How to good L7LB <a name="HowToGoodL7LB"></a>
@@ -81,7 +81,7 @@ Same to author, you create 3 nodejs instance for backend load test, you create o
  ================================  tool loadtest ==> L7LB  => nodejs backend =================================
 
 ## Result <a name="ResultL7Local"></a>
-1) In context local ==> local, we get result https://github.com/Nghiait123456/InfraForBigProject/tree/master/1_LoadBalancing/L7Loadbalancer/LoadBalancerBenchmark/result easy with cpu i5 8 core 8GB ram
+1) In context local ==> local, we get result /L7Loadbalancer/LoadBalancerBenchmark/result easy with cpu i5 8 core 8GB ram
 2) You are very fast have quick test in local, but in product, it's not simple. <br/>
 
 ## Load test product <a name="LoadTestProduct"></a>
@@ -102,12 +102,12 @@ But if we call google form one ip, google still block and status code change. We
 ## Result in product L7LB  <a name="ResultInProductL7LB"></a>
 ## Haproxy L7LB result? <a name="HaproxyL7LBResult"></a>
 ## 100K rqs with EC2_C5_4X_larger <a name="100KRqsWithEC2_C5_4X_larger"></a>
-context test in product <br/>
-1) for LB: we build one instance EC2_C5_4X_larger for LB, we run docker with 1_LoadBalancing/L7Loadbalancer/LoadBalancerBenchmark/docker-compose-haproxy-local-to-gg.yml in this. <br/>
-2) for Load Test, we build  one instance EC2_C5_4X_larger, build docker and use bombardier for load test. It's same : docker run -ti --rm --ulimit nofile=65535:65535 --network=host alpine/bombardier --http1 -c 400   -d 600s -t 1s  -l http://ec2-13-250-40-69.ap-southeast-1.compute.amazonaws.com:8080/ <br/>
-result:  <br/>
-1) we test with rqs from 1000 to 100.000 rqs, time test form 10 s to 10 min,  total request from 10 000 to 65080275, cpu <= 60 %, ram is very good  <br/>
-2) when we stop test, cpu is very fast to ~ 0 or 1 %, ram is very fast free => don't have leak ram, leak cpu  <br/>
-3) detail result in link 1_LoadBalancing/L7Loadbalancer/LoadBalancerBenchmark/result/c5_4x_large.md  <br/>
+Context test in product <br/>
+1) For LB: we build one instance LoadBalancerBenchmark/docker-compose-haproxy-local-to-gg.yml in this. <br/>
+2) For Load Test, we build  one instance EC2_C5_4X_larger, build docker and use bombardier for load test. It's same : docker run -ti --rm --ulimit nofile=65535:65535 --network=host alpine/bombardier --http1 -c 400   -d 600s -t 1s  -l http://ec2-13-250-40-69.ap-southeast-1.compute.amazonaws.com:8080/ <br/>
+Result:  <br/>
+1) We test with rqs from 1000 to 100.000 rqs, time test form 10 s to 10 min,  total request from 10 000 to 65080275, cpu <= 60 %, ram is very good  <br/>
+2) When we stop test, cpu is very fast to ~ 0 or 1 %, ram is very fast free => don't have leak ram, leak cpu  <br/>
+3) Detail result in link /L7Loadbalancer/LoadBalancerBenchmark/result/HaproxyProduct/c5_4x_large.md  <br/>
 =>>>>>>>>>>>>>>>>>>>>  Haproxy is very good for rqs, with one instance EC2_C5_4X_larger, we pass and run stable 100.000 rqs, we run stable in longtime, we have 100 M request continuous in 10 to 15 min and cpu and ram is good.  <br/>
 
