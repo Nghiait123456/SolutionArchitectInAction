@@ -95,7 +95,7 @@ Same to author, you create 3 nodejs instance for backend load test, you create o
 Solution and ideal from 3 theory :
 1) From theory 1, i use one Ip for load test, but if it goes to limited, i will use multi ip load test
 2) From theory 2, i set up ulimit to maximum in linux.
-3) From theory 3, in load test, we have data not simple is {"ok"} and response form backend very fast. But in rqs high, you pay a lot of money and pay many times for implements it. I have simple solution, i use big project for load test. EX: gooogle.com:80 ==> return 404, and response 60 character in 100 ms, it's perfect for load test. </br>
+3) From theory 3, in load test, we have data not simple is {"ok"} and response from backend very fast. But in rqs high, you pay a lot of money and pay many times for implements it. I have simple solution, i use big project for load test. EX: gooogle.com:80 ==> return 404, and response 60 character in 100 ms, it's perfect for load test. </br>
 I call google.com (backend) from aws (L7LB), it's very good and keep status response is 404.
 
 ## Result in product L7LB  <a name="ResultInProductL7LB"></a>
