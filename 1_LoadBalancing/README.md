@@ -14,7 +14,6 @@
             - [Context L7LB local](#ContextL7LBLocal)
             - [Process request](#ProccessRequest)
             - [Result](#ResultL7Local)
-            
           - [Load test product](#LoadTestProduct)
             - [What is problem?](#WhatIsProblem)
             - [What is solution?](#WhatIsSolution)
@@ -94,10 +93,10 @@ Same to author, you create 3 nodejs instance for backend load test, you create o
 ## What is solution?  <a name="WhatIsSolution"></a>
 
 Solution and ideal from 3 theory :
-1) From theory 1, don't use one IP address for load test. You have a problem limit port in one ip, if you up to up rqs and rqs later sometime. We choose cloud for test. In cloud, request from instance cloud to endpoint backend pass throw many DNS cloud, and list DNS change for every request, have change many ip always change. It's very good for load test. (todo check)
-2) From theory 2, we set up ulimit to maximum in linux.
-3) From theory 3, in load test, we have data not simple is {"ok"} and response form backend very fast. But in rqs high, you pay a lot of money and pay many times for implements it. We have simple solution, we use big project for load test. EX: gooogle.com:80 ==> return 404, and response 60 character in 100 ms, it's perfect for load test. </br>
-But if we call google form one ip, google still block and status code change. We call google.com (backend) from aws (L7LB), it's very good and keep status response is 404. (todo check)
+1) From theory 1, i use one Ip for load test, but if it goes to limited, i will use multi ip load test
+2) From theory 2, i set up ulimit to maximum in linux.
+3) From theory 3, in load test, we have data not simple is {"ok"} and response form backend very fast. But in rqs high, you pay a lot of money and pay many times for implements it. I have simple solution, i use big project for load test. EX: gooogle.com:80 ==> return 404, and response 60 character in 100 ms, it's perfect for load test. </br>
+I call google.com (backend) from aws (L7LB), it's very good and keep status response is 404.
 
 ## Result in product L7LB  <a name="ResultInProductL7LB"></a>
 ## Haproxy L7LB result? <a name="HaproxyL7LBResult"></a>
