@@ -138,6 +138,6 @@ detail result in link: 1_LoadBalancing/L7Loadbalancer/LoadBalancerBenchmark/resu
 
 
 ## Why i don't up to up rqs?  <a name="WhyIDontUpToUpRqs"></a>
-I was setup process number is 10. All cpu run is ~ 70% cpu. With me, and with many other documents and experiences, this is the safe max when running the product. Instead of pushing the CPU to 70 to 85% to increase the load, increase the LB server configuration or scale the LB horizontally.
+I was configed process number is 10. All cpu run is ~ 70% cpu. With me, and with many other documents and experiences, this is the safe max when running the product. Instead of pushing the CPU to 70 to 85% to increase the load, increase the LB server configuration or scale the LB horizontally.
 
 
