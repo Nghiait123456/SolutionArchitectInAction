@@ -3,7 +3,7 @@
 - [Why you need Load Balancer?](#WhyYouNeedLoadbalancer)
 - [How many type Load Balancer?](#HowManyTypeLoadbalancer)
 - [Dissect load balancer?](#DissectLoadBalancer)
-    - [L7 LoadBalancer](#L7LoadBalancer)
+- [L7 LoadBalancer](#L7LoadBalancer)
       - [Define](#Define)
       - [Life circle](#LifeCircle)
       - [How to good L7LB](#HowToGoodL7LB)
@@ -24,7 +24,13 @@
                     - [Why is 140K rqs ](#WhyIs140KRqs)
                     - [Detail parameter with 140K rqs](#DetailParameterWith140KRqs)
                     - [Why i don't up to up rqs?](#WhyIDontUpToUpRqs)
-                  - [2M connect TCP HAPROXY](#2M connect TCP HAPROXY)
+                  - [todo wait aws and test with larger Cpu](#100KRqsWithEC2_C5_4X_larger)
+              - [2M connect TCP HAPROXY](#2M connect TCP HAPROXY)
+      - [Auto config haproxy ](#autoConfigHaroxy)
+      - [Point root domain to haproxy](#PointRootDomainToHaproxy)
+      - [Auto handle haproxy down](#AutoHandleHaproxyDown)
+      - [Auto handle and alert backend down](#AutoHandleAndAlertBackendDown)
+      - [What ssl in Haproxy](#WhatSslInHaproxy)
                 
 ## What is Load Balancer? <a name="WhatIsLoadBalancer"></a>
   It's a system navigating and split load. Ex: You have a billion rqs, you want 50% request to North American's region, 30% request to Asian, 20 % request to Europe. This is job of load balance.
