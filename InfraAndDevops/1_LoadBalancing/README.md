@@ -4,36 +4,53 @@
 - [How many type Load Balancer?](#HowManyTypeLoadbalancer)
 - [Dissect load balancer?](#DissectLoadBalancer)
 - [L7 LoadBalancer](#L7LoadBalancer)
-      - [Define](#Define)
-      - [Life circle](#LifeCircle)
-      - [How to good L7LB](#HowToGoodL7LB)
-      - [Market Review](#MarketReview)
-      - [Source code loadbalancer](#SourceCodeLoadbalancer])
-      - [L7 Local to local](#L7LocalToLocal)
-          - [Load test local to local](#LoadTestLocalToLocal)
-            - [Context L7LB local](#ContextL7LBLocal)
-            - [Process request](#ProccessRequest)
-            - [Result](#ResultL7Local)
-          - [Load test product](#LoadTestProduct)
-            - [What is problem?](#WhatIsProblem)
-            - [What is solution?](#WhatIsSolution)
-            - [Result in product L7LB?](#ResultInProductL7LB)
-              - [Haproxy L7LB result?](#HaproxyL7LBResult)
-                  - [100K rqs with EC2_C5_4X_larger](#100KRqsWithEC2_C5_4X_larger)
-                  - [140K rqs with EC2_C5_4X_larger](#100KRqsWithEC2_C5_4X_larger)
-                    - [Why is 140K rqs ](#WhyIs140KRqs)
-                    - [Detail parameter with 140K rqs](#DetailParameterWith140KRqs)
-                    - [Why i don't up to up rqs?](#WhyIDontUpToUpRqs)
-                  - [todo wait aws and test with larger Cpu](#100KRqsWithEC2_C5_4X_larger)
-              - [2M connect TCP HAPROXY](#2M connect TCP HAPROXY)
+  - [Define](#Define)
+  - [Life circle](#LifeCircle)
+  - [How to good L7LB](#HowToGoodL7LB)
+  - [Market Review](#MarketReview)
+  - [Source code loadbalancer](#SourceCodeLoadbalancer])
+  - [L7 Local to local](#L7LocalToLocal)
+      - [Load test local to local](#LoadTestLocalToLocal)
+        - [Context L7LB local](#ContextL7LBLocal)
+        - [Process request](#ProccessRequest)
+        - [Result](#ResultL7Local)
+      - [Load test product](#LoadTestProduct)
+        - [What is problem?](#WhatIsProblem)
+        - [What is solution?](#WhatIsSolution)
+        - [Result in product L7LB?](#ResultInProductL7LB)
+          - [Haproxy L7LB result?](#HaproxyL7LBResult)
+              - [100K rps with EC2_C5_4X_larger](#100KRpsWithEC2_C5_4X_larger)
+              - [140K rps with EC2_C5_4X_larger](#100KRpsWithEC2_C5_4X_larger)
+                - [Why is 140K rps ](#WhyIs140KRps)
+                - [Detail parameter with 140K rps](#DetailParameterWith140KRps)
+                - [Why i don't up to up rps?](#WhyIDontUpToUpRps)
+              - [todo wait aws and test with larger Cpu](#100KRpsWithEC2_C5_4X_larger)
+      - [2M connect TCP HAPROXY](#2M connect TCP HAPROXY)
       - [Auto config haproxy ](#autoConfigHaroxy)
       - [Point root domain to haproxy](#PointRootDomainToHaproxy)
       - [Auto handle haproxy down](#AutoHandleHaproxyDown)
       - [Auto handle and alert backend down](#AutoHandleAndAlertBackendDown)
       - [What ssl in Haproxy](#WhatSslInHaproxy)
+
+- [L4 LoadBalancer](#L4 LoadBalancer)
+  - [Define](#L4Define) 
+  - [Why you need L4LB?](#WhyYouNeedL4LB)
+  - [How to L4LB work?](#HowToL4LBWork?)
+  - [Why L4LB faster and many times faster than L7LB?](#WhyL4LBFasterAndManyTimesFasterThanL7LB?)
+  - [Implement in local?](#ImplementL4LBInLocal?)
+  - [Implement in product?](#ImplementL4LBInProduct?)
+  - [Result in product?](#ResultInProduct?)
+    - [TodoWithManyOption?](#TodoWithManyOption?)
+  - [Load balancer instance with L4Lb?](#LoadBalancerInstanceWithL4Lb?)
+  - [What happen when L4LB down?](#WhatHappenWhenL4LBDown?)
+    - [What solution?](#WhatSolutionL4LbDown?)
+    - [Real time cluster wide tracking?](#RealTimeClusterWideTrackingL4LB?)
+  - [Same solution L4LB in AWS?](#SameSolutionL4LBInAWS?)
+  - [Point root domain to L4 Haproxy](#PointRootDomainToL4Haproxy)
+      
                 
 ## What is Load Balancer? <a name="WhatIsLoadBalancer"></a>
-  It's a system navigating and split load. Ex: You have a billion rqs, you want 50% request to North American's region, 30% request to Asian, 20 % request to Europe. This is job of load balance.
+  It's a system navigating and split load. Ex: You have a billion rps, you want 50% request to North American's region, 30% request to Asian, 20 % request to Europe. This is job of load balance.
 
 ## Why you need Load Balancer?  <a name="WhyYouNeedLoadbalancer"></a>
   One server don't have scale for everything. When request up, you need more server. At time, you need one system navigating and split load to this server. You need load balancer.
@@ -62,7 +79,7 @@ In L7LB, endpoint request project to L7LB, L7 keep TCP connect and L7 call to ba
 
 ## How to good L7LB <a name="HowToGoodL7LB"></a>
 From this define, these param importance for good L7LB:
-1) Number concurrency rqs is good
+1) Number concurrency rps is good
 2) Ram and cpu when up request to limit LB is small and has a stable operating threshold.
 3) Against memory leak, cpu leak ==> stability of LB when run long time
 4) Low latency
@@ -104,46 +121,46 @@ Same to author, you create 3 nodejs instance for backend load test, you create o
 Solution and ideal from 3 theory :
 1) From theory 1, i use one Ip for load test, but if it goes to limited, i will use multi ip load test
 2) From theory 2, i set up ulimit to maximum in linux.
-3) From theory 3, in load test, we have data not simple is {"ok"} and response from backend very fast. But in rqs high, you pay a lot of money and pay many times for implements it. I have simple solution, i use big project for load test. EX: gooogle.com:80 ==> return 404, and response 60 character in 100 ms, it's perfect for load test. </br>
+3) From theory 3, in load test, we have data not simple is {"ok"} and response from backend very fast. But in rps high, you pay a lot of money and pay many times for implements it. I have simple solution, i use big project for load test. EX: gooogle.com:80 ==> return 404, and response 60 character in 100 ms, it's perfect for load test. </br>
 I call google.com (backend) from aws (L7LB), it's very good and keep status response is 404.
 
 ## Result in product L7LB  <a name="ResultInProductL7LB"></a>
 ## Haproxy L7LB result? <a name="HaproxyL7LBResult"></a>
-## 100K rqs with EC2_C5_4X_larger <a name="100KRqsWithEC2_C5_4X_larger"></a>
+## 100K rps with EC2_C5_4X_larger <a name="100KRpsWithEC2_C5_4X_larger"></a>
 Context test in product <br/>
 1) For LB: we build one instance LoadBalancerBenchmark/docker-compose-haproxy-local-to-gg.yml in this. (docker-compose -f docker-compose-haproxy-local-to-gg.yml up)<br/>
 2) For Load Test, we build  one instance EC2_C5_4X_larger, build docker and use bombardier for load test. It's same : docker run -ti --rm --ulimit nofile=65535:65535 --network=host alpine/bombardier --http1 -c 400   -d 600s -t 1s  -l http://ec2-13-250-40-69.ap-southeast-1.compute.amazonaws.com:8080/ <br/>
 Result:  <br/>
-1) We test with rqs from 1000 to 100.000 rqs, time test form 10 s to 10 min,  total request from 10 000 to 65080275, cpu <= 60 %, ram is very good  <br/>
+1) We test with rps from 1000 to 100.000 rps, time test form 10 s to 10 min,  total request from 10 000 to 65080275, cpu <= 60 %, ram is very good  <br/>
 2) When we stop test, cpu is very fast to ~ 0 or 1 %, ram is very fast free => don't have leak ram, leak cpu  <br/>
 3) Detail result in link /L7Loadbalancer/LoadBalancerBenchmark/result/HaproxyProduct/c5_4x_large.md  <br/>
-=>>>>>>>>>>>>>>>>>>>>  Haproxy is very good for rqs, with one instance EC2_C5_4X_larger, we pass and run stable 100.000 rqs, we run stable in longtime, we have 100 M request continuous in 10 to 15 min and cpu and ram is good.  <br/>
+=>>>>>>>>>>>>>>>>>>>>  Haproxy is very good for rps, with one instance EC2_C5_4X_larger, we pass and run stable 100.000 rps, we run stable in longtime, we have 100 M request continuous in 10 to 15 min and cpu and ram is good.  <br/>
 
 
-## 140K rqs with EC2_C5_4X_larger?  <a name="140KRqsWithEC2_C5_4X_larger"></a>
-yup, 140 k rqs with one instance c5_4x_large
-This is big number for one instance LB, 140k rqs is enough for most mid-range web sites, about 20.30 M users online. Of course this depends on the application, here I consider social networks. The average number of users interacting in 1s is 8 to 10% of online users. This number is also quite similar to facebook in terms of ratio. In 2010, facebook had 700 M user and rqs is 13 M.
+## 140K rps with EC2_C5_4X_larger?  <a name="140KRpsWithEC2_C5_4X_larger"></a>
+yup, 140 k rps with one instance c5_4x_large
+This is big number for one instance LB, 140k rps is enough for most mid-range web sites, about 20.30 M users online. Of course this depends on the application, here I consider social networks. The average number of users interacting in 1s is 8 to 10% of online users. This number is also quite similar to facebook in terms of ratio. In 2010, facebook had 700 M user and rps is 13 M.
 
-## Why is 140K rqs <a name="WhyIs140KRqs"></a>
-Review case study 100 K rqs, i find some problem: </br>
+## Why is 140K rps <a name="WhyIs140KRps"></a>
+Review case study 100 K rps, i find some problem: </br>
 1) cpu in range 50 to 60 % ==> can completely push to stable threshold at 65 to 75 % </br>
 
 2) There is a lot of RAM left over, only using about 15 % ==> Obviously with the problem of reponse api json, LB Haproxy does not use much ram, it uses CPU ==> choose devices with high cpu/ram will get better performance with context fast response json api. </br>
 
-3) Bandwith, total connect Tcp is small but loadtest don't increment rqs ==> i use more LB for loadtest to increase number of requests. </br>
+3) Bandwith, total connect Tcp is small but loadtest don't increment rps ==> i use more LB for loadtest to increase number of requests. </br>
 
 
-## Detail parameter with 140K rqs?  <a name="DetailParameterWith140KRqs"></a>
+## Detail parameter with 140K rps?  <a name="DetailParameterWith140KRps"></a>
 I use 2 instances of C5_4x_larger for loadtest and 1 instance of C5_4x_larger for LB. </br>
-With test in 60s, every Loadtest return71112.85 rqs and 4232563 total request. ==> total, i have 143 k rqs and ~ 8.5 m request total. The cpu is stable at 70% and released to ~0 % as soon as the loadtest is stopped. </br>
+With test in 60s, every Loadtest return71112.85 rps and 4232563 total request. ==> total, i have 143 k rps and ~ 8.5 m request total. The cpu is stable at 70% and released to ~0 % as soon as the loadtest is stopped. </br>
 
-With test in 600s, every Loadtest return 69817.63 rqs and 41625417 total rquest ==> total, i have ~ 140 K rqs and 83 M request total. This is a huge number for mid-range products. The cpu is stable at 70% and released to ~0 % as soon as the loadtest is stopped. </br>
+With test in 600s, every Loadtest return 69817.63 rps and 41625417 total rquest ==> total, i have ~ 140 K rps and 83 M request total. This is a huge number for mid-range products. The cpu is stable at 70% and released to ~0 % as soon as the loadtest is stopped. </br>
 
-detail result in link: 1_LoadBalancing/L7Loadbalancer/LoadBalancerBenchmark/result/HaproxyProduct/140K_rqs_c5_4x_large.md </br>
+detail result in link: 1_LoadBalancing/L7Loadbalancer/LoadBalancerBenchmark/result/HaproxyProduct/140K_rps_c5_4x_large.md </br>
 
 
 
-## Why i don't up to up rqs?  <a name="WhyIDontUpToUpRqs"></a>
+## Why i don't up to up rps?  <a name="WhyIDontUpToUpRps"></a>
 I was configed process number is 10. All cpu run is ~ 70% cpu. With me, and with many other documents and experiences, this is the safe max when running the product. Instead of pushing the CPU to 70 to 85% to increase the load, increase the LB server configuration or scale the LB horizontally.
 
 

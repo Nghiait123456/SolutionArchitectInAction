@@ -3,7 +3,7 @@
                                       endpoint ---->  L7LB  ----> backend app
 
   2) From this define, these param importance for good L7LB:
-      1) number concurrency rqs
+      1) number concurrency rps
       2) ram and cpu when up request to limit LB
       3) against memory leak, cpu leak ==> stability of LB when run long time
 
