@@ -1,0 +1,12 @@
+ersion: "3.3"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8083"
+    entrypoint:
+      [
+      ]
+    command: [ "/app/main" ]

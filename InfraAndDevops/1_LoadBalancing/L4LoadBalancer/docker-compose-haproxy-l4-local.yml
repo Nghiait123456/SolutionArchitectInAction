@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  haproxy:
+    image: haproxy:2.6-alpine
+    ports:
+      - 8080:8080
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 200000
+        hard: 200000
+    volumes:
+      - ./haproxy/haproxy_layer_4_local.cfg:/usr/local/etc/haproxy/haproxy.cfg
+
+networks:
+  lb_l7_local:
+    external: true
