@@ -47,6 +47,7 @@
     - [Real time cluster wide tracking?](#RealTimeClusterWideTrackingL4LB?)
   - [Same solution L4LB in AWS?](#SameSolutionL4LBInAWS?)
   - [Point root domain to L4 Haproxy](#PointRootDomainToL4Haproxy)
+  - [Simple load balancer regison base DNS and L4LB](#PointRootDomainToL4Haproxy)
       
                 
 ## What is Load Balancer? <a name="WhatIsLoadBalancer"></a>
