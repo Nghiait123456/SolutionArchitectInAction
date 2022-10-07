@@ -94,6 +94,9 @@ func ExampleClient() {
 		panic("exist")
 	}
 
+	fmt.Println("value aaa=", redisCluterClient.c.Get(ctx, "aaa"))
+	fmt.Println("value key=", redisCluterClient.c.Get(ctx, "key"))
+
 	fmt.Println("test success")
 }
 
