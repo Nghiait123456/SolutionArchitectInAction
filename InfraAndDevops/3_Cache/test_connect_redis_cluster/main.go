@@ -23,6 +23,7 @@ type redisCluterClient struct {
 //GetClient get the redis client
 func initialize(hostnames string) *redisCluterClient {
 	addr := strings.Split(hostnames, ",")
+	addr = []string{"testredis.odfdzo.clustercfg.apse1.cache.amazonaws.com:6379"}
 	c := redis.NewClusterClient(&redis.ClusterOptions{
 		Addrs: addr,
 	})
