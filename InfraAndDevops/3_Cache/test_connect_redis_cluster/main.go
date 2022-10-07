@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	redis "github.com/go-redis/redis/v8"
-	"log"
 	"strings"
 	"time"
 )
@@ -68,23 +67,34 @@ type valueEx struct {
 func ExampleClient() {
 	//Use your actually ip address here
 	redisCluterClient := initialize("testredis.odfdzo.clustercfg.apse1.cache.amazonaws.com:6379")
-	key1 := "sampleKey"
+	key1 := "aaa"
 	value1 := &valueEx{Name: "someName", Email: "someemail@abc.com"}
-	err := redisCluterClient.setKey(key1, value1, time.Minute*1)
+
+	err := redisCluterClient.c.Set(ctx, key1, value1, time.Minute*1).Err()
 	if err != nil {
-		fmt.Printf("Error: %v \n", err.Error())
-		panic("error set Key")
+		switch {
+		case err == redis.Nil:
+			fmt.Println("key does not exist")
+		case err != nil:
+			fmt.Println("Get failed", err)
+			panic("exist")
+		}
 	}
 
-	value2 := &valueEx{}
-	key2 := "key"
-	err2 := redisCluterClient.getKey(key2, value2)
+	err2 := redisCluterClient.c.Set(ctx, "key", "ddddd", time.Minute*1).Err()
 	if err2 != nil {
-		fmt.Printf("Error: %v \n", err2.Error())
-		panic("error set Key")
+		switch {
+		case err2 == redis.Nil:
+			fmt.Println("key does not exist")
+		case err2 != nil:
+			fmt.Println("Get failed", err2.Error())
+			panic("exist")
+		}
+
+		panic("exist")
 	}
-	log.Printf("Name: %s", value2.Name)
-	log.Printf("Email: %s", value2.Email)
+
+	fmt.Println("test success")
 }
 
 func main() {
