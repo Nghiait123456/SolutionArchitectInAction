@@ -9,4 +9,5 @@ else
     sh install_docker_ubuntu.sh
 fi
 
+echo "run docker composer"
 docker-compose up --build
