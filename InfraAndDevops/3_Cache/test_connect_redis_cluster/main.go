@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	redis "github.com/go-redis/redis/v8"
 	"log"
 	"strings"
@@ -70,14 +71,16 @@ func ExampleClient() {
 	value1 := &valueEx{Name: "someName", Email: "someemail@abc.com"}
 	err := redisCluterClient.setKey(key1, value1, time.Minute*1)
 	if err != nil {
-		log.Fatalf("Error: %v", err.Error())
+		fmt.Printf("Error: %v \n", err.Error())
+		panic("error set Key")
 	}
 
 	value2 := &valueEx{}
 	key2 := "key"
-	err = redisCluterClient.getKey(key2, value2)
-	if err != nil {
-		log.Fatalf("Error: %v", err.Error())
+	err2 := redisCluterClient.getKey(key2, value2)
+	if err2 != nil {
+		fmt.Printf("Error: %v \n", err2.Error())
+		panic("error set Key")
 	}
 	log.Printf("Name: %s", value2.Name)
 	log.Printf("Email: %s", value2.Email)
