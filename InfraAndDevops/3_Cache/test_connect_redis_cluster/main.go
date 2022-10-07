@@ -65,7 +65,7 @@ type valueEx struct {
 
 func ExampleClient() {
 	//Use your actually ip address here
-	redisCluterClient := initialize("127.0.0.1:6379")
+	redisCluterClient := initialize("testredis.odfdzo.clustercfg.apse1.cache.amazonaws.com:6379")
 	key1 := "sampleKey"
 	value1 := &valueEx{Name: "someName", Email: "someemail@abc.com"}
 	err := redisCluterClient.setKey(key1, value1, time.Minute*1)
