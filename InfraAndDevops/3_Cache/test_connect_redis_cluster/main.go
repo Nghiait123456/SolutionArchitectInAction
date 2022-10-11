@@ -78,18 +78,29 @@ func ExampleClient() {
 		Password: "bitnami",
 	})
 
-	err := redisCluterClient.c.Set(ctx, "aaa", "tessst", time.Minute*1).Err()
-	if err != nil {
+	err0 := redisCluterClient.c.Set(ctx, "ValueEmpty", "", time.Minute*1).Err()
+	if err0 != nil {
 		switch {
-		case err == redis.Nil:
+		case err0 == redis.Nil:
 			fmt.Println("key does not exist")
-		case err != nil:
-			fmt.Println(err)
+		case err0 != nil:
+			fmt.Println(err0.Error())
 			panic("exist")
 		}
 	}
 
-	err2 := redisCluterClient.c.Set(ctx, "key", "ddddd", time.Minute*1).Err()
+	err1 := redisCluterClient.c.Set(ctx, "aaa", "tessst", time.Minute*1).Err()
+	if err1 != nil {
+		switch {
+		case err1 == redis.Nil:
+			fmt.Println("key does not exist")
+		case err1 != nil:
+			fmt.Println(err1)
+			panic("exist")
+		}
+	}
+
+	err2 := redisCluterClient.c.Set(ctx, "key", "ddddd", time.Second*1).Err()
 	if err2 != nil {
 		switch {
 		case err2 == redis.Nil:
@@ -138,8 +149,22 @@ func ExampleClient() {
 
 	fmt.Println("value aaa=", redisCluterClient.c.Get(ctx, "aaa"))
 	fmt.Println("value key=", redisCluterClient.c.Get(ctx, "key"))
+	notExistValue, notExistErr := redisCluterClient.c.Get(ctx, "keyasdasdad").Result()
+	fmt.Println("notExistValue", notExistValue, "not existError", notExistErr.Error())
+
+	fmt.Println("start delete varible in cache map key aaa")
+	redisCluterClient.c.Del(ctx, "aaa")
+	fmt.Println("value aaa=", redisCluterClient.c.Get(ctx, "aaa"))
+
+	fmt.Println("start tets invalidate in cache map key keys")
+	time.Sleep(5 * time.Second)
+	fmt.Println("value key=", redisCluterClient.c.Get(ctx, "key"))
+
+	fmt.Println("start test value Empty")
+	fmt.Println("value map key ValueEmpty=", redisCluterClient.c.Get(ctx, "ValueEmpty"))
 
 	fmt.Println("test success")
+
 }
 
 func main() {
