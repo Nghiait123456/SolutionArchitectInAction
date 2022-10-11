@@ -10,17 +10,6 @@ import (
 )
 
 func main() {
-	//server, err := tempredis.Start(tempredis.Config{})
-	//if err != nil {
-	//	panic(err)
-	//}
-	//defer server.Term()
-
-	//client := goredislib.NewClient(&goredislib.Options{
-	//	Network: "unix",
-	//	Addr:    server.Socket(),
-	//})
-
 	client := goredislib.NewClusterClient(&goredislib.ClusterOptions{
 		Addrs:    []string{"127.0.0.1:6379"},
 		Password: "bitnami",
