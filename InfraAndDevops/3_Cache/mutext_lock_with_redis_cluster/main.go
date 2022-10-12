@@ -19,7 +19,10 @@ func main() {
 
 	rs := redsync.New(pool)
 
-	mutex := rs.NewMutex("test-redsync")
+	mutex := rs.NewMutex("test-redsync", redsync.OptionFunc(func(mutex *redsync.Mutex) {
+		mutex.SetExpiry(10 * time.Second)
+	}))
+
 	ctx := context.Background()
 
 	fmt.Println("start lock")
