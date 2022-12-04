@@ -1,20 +1,47 @@
 package main
 
 import (
-	"fmt"
+	"io"
+	"log"
+	"net/http"
 	"os"
+	"sync"
 )
 
 func main() {
-	f, err := os.OpenFile("./tmp/123.txt", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0600)
-	if err != nil {
-		panic(err)
-	}
-	defer f.Close()
+	pr, pw := io.Pipe()
 
-	n, err := f.Write([]byte("writing some data into a file"))
+	// we need to wait for everything to be done
+	wg := sync.WaitGroup{}
+	wg.Add(2)
+
+	// we get some file as input
+	f, err := os.Open("./fruit.txt")
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
-	fmt.Println("wrote %d bytes", n)
+
+	// TeeReader gets the data from the file and also writes it to the PipeWriter
+	tr := io.TeeReader(f, pw)
+
+	go func() {
+		defer wg.Done()
+		defer pw.Close()
+
+		// get data from the TeeReader, which feeds the PipeReader through the PipeWriter
+		_, err := http.Post("https://example.com", "text/html", tr)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}()
+
+	go func() {
+		defer wg.Done()
+		// read from the PipeReader to stdout
+		if _, err := io.Copy(os.Stdout, pr); err != nil {
+			log.Fatal(err)
+		}
+	}()
+
+	wg.Wait()
 }
