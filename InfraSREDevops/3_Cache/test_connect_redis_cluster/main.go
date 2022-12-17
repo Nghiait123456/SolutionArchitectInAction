@@ -113,7 +113,7 @@ func ExampleClient() {
 		panic("exist")
 	}
 
-	fmt.Println("test Set Object")
+	fmt.Println("auth Set Object")
 
 	err3 := redisCluterClient.setKey("keyString", &valueEx{
 		Email: "email",
@@ -160,10 +160,10 @@ func ExampleClient() {
 	time.Sleep(5 * time.Second)
 	fmt.Println("value key=", redisCluterClient.c.Get(ctx, "key"))
 
-	fmt.Println("start test value Empty")
+	fmt.Println("start auth value Empty")
 	fmt.Println("value map key ValueEmpty=", redisCluterClient.c.Get(ctx, "ValueEmpty"))
 
-	fmt.Println("test success")
+	fmt.Println("auth success")
 
 }
 

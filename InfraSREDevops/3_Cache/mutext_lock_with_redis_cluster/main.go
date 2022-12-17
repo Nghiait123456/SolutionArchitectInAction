@@ -19,7 +19,7 @@ func main() {
 
 	rs := redsync.New(pool)
 
-	mutex := rs.NewMutex("test-redsync", redsync.OptionFunc(func(mutex *redsync.Mutex) {
+	mutex := rs.NewMutex("auth-redsync", redsync.OptionFunc(func(mutex *redsync.Mutex) {
 		mutex.SetExpiry(10 * time.Second)
 	}))
 

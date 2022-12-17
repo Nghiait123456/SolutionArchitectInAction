@@ -50,8 +50,8 @@ func main1() {
 	//	log.FatalF("usage: %s <filename> <s3-filepath>\n", filepath.Base(os.Args[0]))
 	//}
 
-	filename := "test.txt"
-	key := "a/test.txt"
+	filename := "auth.txt"
+	key := "a/auth.txt"
 
 	file, err := os.Open(filename)
 	if err != nil {
