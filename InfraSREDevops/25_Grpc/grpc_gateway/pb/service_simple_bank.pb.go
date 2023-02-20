@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        v3.8.0
-// source: service_simple_bank.proto
+// source: auht_service_simple_bank.proto
 
 package pb
 

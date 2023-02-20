@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package pb;
-import "user_1.proto";
-option go_package = "grpc_gateway/pb";
+package proto.auth;
+import "auth_user_auth.proto";
+option go_package = "grpc_gateway_cleary_code/pb";
 
 message CreateUserRequest {
   string username = 1;
