@@ -50,7 +50,7 @@
     - [Point root domain to L4 Haproxy](#PointRootDomainToL4Haproxy)
 
 - [Load balancer region base DNS and L4LB](#load_balancer_region_base_dns_and_l4lb)
-- [Load balancer with BGP software](#load_balancer_with_BGP_software)
+- [Load balancer with BGP software](#load_balancer_with_bgp_software)
 
 ## What is Load Balancer? <a name="WhatIsLoadBalancer"></a>
 
@@ -234,7 +234,7 @@ geolocations. When an L4LB is down, a backup L4LB cluster will be used. The down
 downtime due to the DNS that takes several tens of seconds to update the record and direct the traffic. </br>
 EX: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.html </br>
 
-## Load balancer with BGP software  <a name="load_balancer_with_BGP_software"></a>
+## Load balancer with BGP software  <a name="load_balancer_with_bgp_software"></a>
 
 Another system is using EBG software software as navigation, user's routes will be broadcast to the whole internet, I
 can
