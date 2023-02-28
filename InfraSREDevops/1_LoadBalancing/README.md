@@ -236,9 +236,8 @@ EX: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-loa
 
 ## Load balancer with BGP software  <a name="load_balancer_with_bgp_software"></a>
 
-Another system is using EBG software software as navigation, user's routes will be broadcast to the whole internet, I
-can
-actively add routes, adjust, delete routes. The L4LB bursts will be placed and the EBG software line broadcasts, it
-receives the
-traffic. Advantages: small system downtime. </br>
+Another system is using EBG software as navigation, user's routes will be broadcast to the whole internet, I
+can actively add routes, adjust, delete routes. The L4LB will be placed and the EBG software is broadcasts, it receives
+the traffic. Advantages: small system downtime.
+
 EX: https://www.youtube.com/watch?v=LLBT70yexZo&t=857s </br>
