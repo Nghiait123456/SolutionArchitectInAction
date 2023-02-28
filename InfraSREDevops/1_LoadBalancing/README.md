@@ -49,7 +49,7 @@
     - [Same solution L4LB in AWS?](#SameSolutionL4LBInAWS?)
     - [Point root domain to L4 Haproxy](#PointRootDomainToL4Haproxy)
 
-- [SLoad balancer region base DNS and L4LB](#load_balancer_region_base_dns_and_l4lb)
+- [Load balancer region base DNS and L4LB](#load_balancer_region_base_dns_and_l4lb)
 - [Load balancer with BGP software](#load_balancer_with_BGP_software)
 
 ## What is Load Balancer? <a name="WhatIsLoadBalancer"></a>
@@ -227,14 +227,14 @@ I was configed process number is 10. All cpu run is ~ 70% cpu. With me, and with
 this is the safe max when running the product. Instead of pushing the CPU to 70 to 85% to increase the load, increase
 the LB server configuration or scale the LB horizontally.
 
-## SLoad balancer region base DNS and L4LB?  <a name="load_balancer_region_base_dns_and_l4lb"></a>
+## Load balancer region base DNS and L4LB  <a name="load_balancer_region_base_dns_and_l4lb"></a>
 
 You will have a load balancing system based on user locations, DNS will be directed to L4 loadbalances located on those
 geolocations. When an L4LB is down, a backup L4LB cluster will be used. The downside of these methods is the large
 downtime due to the DNS that takes several tens of seconds to update the record and direct the traffic. </br>
 EX: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.html </br>
 
-## Load balancer with BGP software?  <a name="load_balancer_with_BGP_software"></a>
+## Load balancer with BGP software  <a name="load_balancer_with_BGP_software"></a>
 
 Another system is using EBG software software as navigation, user's routes will be broadcast to the whole internet, I
 can
