@@ -1,5 +1,5 @@
 - [Type Api Gateway in Microservice](#type_pai_gateway_in_microservice)
-- [How to choose api gateway](#how_to_choose_api_gateway)
+- [How do choose api gateway](#how_do_choose_api_gateway)
 
 ## Type Api Gateway in Microservice  <a name="type_pai_gateway_in_microservice"></a>
 
@@ -11,7 +11,7 @@ navigation of the service, authen, author. In the many entry point model, split 
 needs: web, mobile, public..., the work of each point is similar to the single entry point model. Details
 link: https://microservices.io/patterns/apigateway.html </br>
 
-## How to choose api gateway  <a name="how_to_choose_api_gateway"></a>
+## How do choose api gateway  <a name="how_do_choose_api_gateway"></a>
 A selected api gateway must ensure fast, lightweight, stable, secure, full authen, authorization.... All famous open
 source like Kong, cloud like AWS ApiGateway fully support features. Basic web app. In cases where it is necessary to
 deeply customize Api Gateway logic, high-performance languages such as go, rust, C++... are used to ensure flexibility.
