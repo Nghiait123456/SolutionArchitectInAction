@@ -1,17 +1,20 @@
-benmark redis cluster 
+- [Cache Cluster is require for high load](#cache_cluster_is_require_for_high_load)
+- [Benchmark Redis](#benchmark_redis)
 
- 8 instance EC2:cache.r6g.large, have 16VCPU ==> ~ 2,5 M ops/sec
+## Cache Cluster is require for high load  <a name="cache_cluster_is_require_for_high_load"></a>
 
-in redis page :
+Redis cluster, memcache cluster are famous open source used by world leading products. To support high load and limit
+i/o bottlenecks, cache cluster is almost a must-have solution. </br>
 
-Nodes  (C5.18xlarge)	10 node, have 720 VCP  ==> ~ 50 M ops/sec
+## Benchmark Redis <a name="benchmark_redis"></a>
 
+Redis cluster has extremely good scalability and extremely high performance. I have a benchmark, it easily booked 2.5
+million ops with 8 instances of EC2:cache.r6g.large, have 16VCPU ==> ~ 2.5 M ops/sec. Redis directly benchmark, it
+reaches
+200M ops with 40 nodes, has 2800 VCPU.
+My benchmark
+details: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/blob/master/InfraSREDevops/3_Cache/result_benmark_redis_cluster.txt </br>
+200M ops bencmark details: https://redis.com/blog/redis-enterprise-extensions-linear-scalability-200m-ops-sec/ </br>
 
-Nodes  (C5.18xlarge)	20  node, have 1400 VCPU ==> 100M ops/sec
-
-
-
-Nodes  (C5.18xlarge)	40 node, have 2800 VCPU  ==>  200M ops/sec 
-
-
-Redis cluster scale horizon is good 
+The redis extension also accommodates most major projects. Aws default allows you to have 100 clusters in one region,
+and this number is completely scalable. </br>
