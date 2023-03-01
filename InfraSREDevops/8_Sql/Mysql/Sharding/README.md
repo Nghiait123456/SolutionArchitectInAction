@@ -1,8 +1,12 @@
 - [Benchmark mysql cluster](#BenchmarkMysqlCluster)
 
-
 ## Benchmark mysql cluster? <a name="BenchmarkMysqlCluster"></a>
-Mysql cluster for very high reliability, fault tolerance and performance. MySQL Cluster 7.4 delivers massively concurrent NoSQL access - 200 Million reads per second using the FlexAsync benchmark. This was achieved with 32 (out of a maximum 48) data nodes, each running on a server with 2x Intel Haswell E5-2697 v3 CPUs. In Aws Aurora, a cluster with a few nodes can easily achieve several hundred thousand qps. </br>
+
+Mysql cluster for very high reliability, fault tolerance and performance. With tool sysbench, I easily set a threshold
+of several thousand qps read write with a few mid-range nodes. MySQL Cluster 7.4 delivers massively
+concurrent NoSQL access - 200 Million reads per second using the FlexAsync benchmark. This was achieved with 32 (out of
+a maximum 48) data nodes, each running on a server with 2x Intel Haswell E5-2697 v3 CPUs. In Aws Aurora, a cluster with
+a few nodes can easily achieve several hundred thousand qps. </br>
 
 Refer:
 https://www.mysql.com/why-mysql/benchmarks/mysql-cluster/ </br>
