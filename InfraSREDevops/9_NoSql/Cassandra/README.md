@@ -4,6 +4,3 @@
 ## Benchmark cassandra? <a name="benchmark_cassandra"></a>
 Cassandra is a nosql database for extremely high performance and extremely low latency, used with very large databases such as social networks. </br>
 https://www.scylladb.com/2021/08/24/apache-cassandra-4-0-vs-scylla-4-4-comparing-performance/
-
-//todo
-hoc do: https://cassandra-apache-org.translate.goog/doc/latest/cassandra/cql/dml.html?_x_tr_sl=en&_x_tr_tl=vi&_x_tr_hl=vi
