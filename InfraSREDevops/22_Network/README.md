@@ -1,5 +1,5 @@
 - [All Of Network And Ten Minute](#all-of-network-in-ten-minute)
-- [Facebook Smart Traffic And LB](#facebook-smart-traffic)
+- [Facebook Smart Traffic And LB](#facebook-smart-traffic-and-lb)
 - [How Facebook Disappeared From The Internet And Down](#how-facebook-disappeared-from-the-internet-and-down)
 
 ## All Of Network And Ten Minute <a name="all-of-network-in-ten-minute"></a>
@@ -9,7 +9,7 @@ the US. Here's a scripted talk with AI to create a relaxed, accessible atmospher
 newbies: https://www.youtube.com/watch?v=mPyqvuQ2GL0. <br>. The content of that conversation is also saved under the
 video </br>
 
-## Facebook Smart Traffic And LB <a name="facebook-smart-traffic"></a>
+## Facebook Smart Traffic And LB <a name="facebook-smart-traffic-and-lb"></a>
 
 Describe and explain how Facebook sets up smart traffic for its system: https://www.youtube.com/watch?v=mPyqvuQ2GL0.
 Reference source: https://www.youtube.com/watch?v=akla5Ya6u2g </br>
