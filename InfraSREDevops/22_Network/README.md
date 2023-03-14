@@ -1,12 +1,21 @@
-internet worrkqua các câu hỏi:
+- [All Of Network And Ten Minute](#all-of-network-in-ten-minute)
+- [Facebook Smart Traffic And LB](#facebook-smart-traffic)
+- [How Facebook Disappeared From The Internet And Down](#how-facebook-disappeared-from-the-internet-and-down)
 
-1) bgp là gì, hoạt động ra sao, update tuyến đường ra sao, quảng bá network như nào ?
-2) định tuyến nội miền như nào, isp quản lý list ip của họ như nao
-3) dns hoạt động như nào,  các máy chỉ dns của các tổ chức lớn aws, face, gg link với nhau ra sao, theo chuẩn nào, tại sao lại cần bgp cho n0   
-4) router get ip như nào từ isp
-5) 2 ip public bất kỳ connect tới nhau như nào 
+## All Of Network And Ten Minute <a name="all-of-network-in-ten-minute"></a>
 
+A panoramic, complete and detailed view of the network's components, how a computer in Vietnam connects to a computer in
+the US. Here's a scripted talk with AI to create a relaxed, accessible atmosphere for network
+newbies: https://www.youtube.com/watch?v=mPyqvuQ2GL0. <br>. The content of that conversation is also saved under the
+video </br>
 
-https://blog.cloudflare.com/october-2021-facebook-outage/
-https://serverfault.com/questions/674195/how-does-a-router-get-its-ip-address-assigned?fbclid=IwAR2b8FqTBfLijI6qGk60MOavVGi2OqC263uPjbjoiAaTMBb__Zpz8QAaZZk#:~:text=If%20you%20have%20non%2DPPP,SLAAC%20or%20DHCPv6%20for%20IPv6
-https://serverfault.com/questions/674195/how-does-a-router-get-its-ip-address-assigned?fbclid=IwAR2b8FqTBfLijI6qGk60MOavVGi2OqC263uPjbjoiAaTMBb__Zpz8QAaZZk#:~:text=If%20you%20have%20non%2DPPP,SLAAC%20or%20DHCPv6%20for%20IPv6
+## Facebook Smart Traffic And LB <a name="facebook-smart-traffic"></a>
+
+Describe and explain how Facebook sets up smart traffic for its system: https://www.youtube.com/watch?v=mPyqvuQ2GL0.
+Reference source: https://www.youtube.com/watch?v=akla5Ya6u2g </br>
+
+## How Facebook Disappeared From The Internet And Down <a name="how-facebook-disappeared-from-the-internet-and-down"></a>
+
+For a description of how a giant system like Facebook is completely down while the servers are still working,
+link: https://www.youtube.com/watch?v=mPyqvuQ2GL0 . Reference
+source: https://blog.cloudflare.com/october-2021-facebook-outage/ </br>

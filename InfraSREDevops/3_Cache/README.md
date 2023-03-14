@@ -14,7 +14,7 @@ reaches
 200M ops with 40 nodes, has 2800 VCPU.
 My benchmark
 details: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/blob/master/InfraSREDevops/3_Cache/result_benmark_redis_cluster.txt </br>
-200M ops bencmark details: https://redis.com/blog/redis-enterprise-extensions-linear-scalability-200m-ops-sec/ </br>
+200M ops benchmark details: https://redis.com/blog/redis-enterprise-extensions-linear-scalability-200m-ops-sec/ </br>
 
 The redis extension also accommodates most major projects. Aws default allows you to have 100 clusters in one region,
 and this number is completely scalable. </br>
