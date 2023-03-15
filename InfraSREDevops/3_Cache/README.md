@@ -15,6 +15,6 @@ reaches
 My benchmark
 details: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/blob/master/InfraSREDevops/3_Cache/result_benmark_redis_cluster.txt </br>
 200M ops benchmark details: https://redis.com/blog/redis-enterprise-extensions-linear-scalability-200m-ops-sec/ </br>
-
+l
 The redis extension also accommodates most major projects. Aws default allows you to have 100 clusters in one region,
 and this number is completely scalable. </br>

@@ -1,4 +1,3 @@
-
 When we develop one function for mini project, it hasn't complex requirements for the system. Usually, we define the
 feature, define logic and implement. </br>
 
