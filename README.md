@@ -3,7 +3,8 @@
     - [Facebook Smart Traffic And LB](#facebook-smart-traffic)
     - [How Facebook Disappeared From The Internet And Down](#how-facebook-disappeared-from-the-internet-and-down)
     - [All Of Network And Ten Minute](#all-of-network-in-ten-minute)
-
+- [Menu](#menu)
+  - [Infra SRE Devops](#infra-sre-devops)
 ## Preview <a name="preview"></a>
 
 When we develop one function for mini project, it hasn't complex requirements for the system. Usually, we define the
@@ -24,4 +25,22 @@ practical document for me and someone to improve their skills in the web app fie
 happy and relax with it. </br>
 
 ## Highlight <a name="highlight"></a>
+
 ## Facebook Smart Traffic And LB <a name="facebook-smart-traffic"></a>
+
+Please
+view: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/tree/master/InfraSREDevops/22_Network#facebook-smart-traffic-and-lb </br>
+
+## How Facebook Disappeared From The Internet And Down <a name="how-facebook-disappeared-from-the-internet-and-down"></a>
+
+Please
+view: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/tree/master/InfraSREDevops/22_Network#how-facebook-disappeared-from-the-internet-and-down </br>
+
+## All Of Network And Ten Minute <a name="all-of-network-in-ten-minute"></a>
+
+Please
+view: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/tree/master/InfraSREDevops/22_Network#all-of-network-in-ten-minute </br>
+
+## Menu <a name="menu"></a>
+## Infra SRE Devops <a name="infra-sre-devops"></a>
+Please view: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/tree/master/InfraSREDevops </br>
