@@ -3,6 +3,7 @@
     - [Facebook Smart Traffic And LB](#facebook-smart-traffic)
     - [How Facebook Disappeared From The Internet And Down](#how-facebook-disappeared-from-the-internet-and-down)
     - [All Of Network And Ten Minute](#all-of-network-in-ten-minute)
+    - [How To Reduce Network Delay In The Problem Of Users Lying Around The World](#how-to-reduce-network-delay-in-the-problem-of-users-lying-around-the-world)
 - [Menu](#menu)
   - [Infra SRE Devops](#infra-sre-devops)
 ## Preview <a name="preview"></a>
