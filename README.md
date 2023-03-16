@@ -41,6 +41,10 @@ view: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/tree/m
 Please
 view: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/tree/master/InfraSREDevops/22_Network#all-of-network-in-ten-minute </br>
 
+## How to reduce network delay in the problem of users lying around the world  <a name="how-to-reduce-network-delay-in-the-problem-of-users-lying-around-the-world"></a>
+Please
+view: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/tree/master/InfraSREDevops/22_Network#how-to-reduce-network-delay-in-the-problem-of-users-lying-around-the-world </br>
+
 ## Menu <a name="menu"></a>
 ## Infra SRE Devops <a name="infra-sre-devops"></a>
 Please view: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/tree/master/InfraSREDevops </br>

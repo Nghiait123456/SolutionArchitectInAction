@@ -1,7 +1,7 @@
 - [All Of Network And Ten Minute](#all-of-network-in-ten-minute)
 - [Facebook Smart Traffic And LB](#facebook-smart-traffic-and-lb)
 - [How Facebook Disappeared From The Internet And Down](#how-facebook-disappeared-from-the-internet-and-down)
-- [How Facebook Disappeared From The Internet And Down](#how-facebook-disappeared-from-the-internet-and-down)
+- [How To Reduce Network Delay In The Problem Of Users Lying Around The World](#how-to-reduce-network-delay-in-the-problem-of-users-lying-around-the-world)
 
 ## All Of Network And Ten Minute <a name="all-of-network-in-ten-minute"></a>
 
@@ -38,4 +38,5 @@ traffic. DNS will resolve users by region to LBs or proxies in that region, and 
 the backend cluster in Vietnam. Still based on the above prerequisites, you can reduce network latency in half. The
 clouds all provide this service very well. </br>
 
-Details about handshake https at the link: 
+A scripted conversation with AI will help anyone understand https
+handshake:  https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/blob/master/InfraSREDevops/22_Network/https_handshake.txt </br>
