@@ -9,7 +9,7 @@ type ipLogs struct {
 	IpForwards []string
 }
 
-func main() {
+func main1() {
 	app := fiber.New()
 
 	app.Get("/ping", func(c *fiber.Ctx) error {
