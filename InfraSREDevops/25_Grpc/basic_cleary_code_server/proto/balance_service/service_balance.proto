@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package balance_service;
+
+import "rpc_balance.proto";
+option go_package = "grpc_basic/pb/pb_balance_service";
+
+service BalanceHandle {
+  rpc RequestBalance (BalanceRequest) returns (BalanceResponse) {}
+}
+
+

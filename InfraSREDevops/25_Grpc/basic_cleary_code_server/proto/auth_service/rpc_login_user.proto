@@ -1,8 +1,8 @@
 syntax = "proto3";
 
 package auth_service;
-import "google/protobuf/timestamp.proto";
 import "user.proto";
+import "google/protobuf/timestamp.proto";
 option go_package = "grpc_basic/pb/pb_auth_service";
 
 

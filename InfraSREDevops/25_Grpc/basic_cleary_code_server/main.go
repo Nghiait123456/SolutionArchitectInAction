@@ -4,15 +4,20 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"grpc_basic_cleary_server/gapi_auth_service"
+	"grpc_basic_cleary_server/gapi_balance_service"
 	"grpc_basic_cleary_server/pb/pb_auth_service"
+	"grpc_basic_cleary_server/pb/pb_balance_service"
 	"log"
 	"net"
 )
 
 func runGrpcServer() {
-	server := gapi_auth_service.NewServer()
+	serverAuth := gapi_auth_service.NewServer()
+	serverBalance := gapi_balance_service.NewServer()
 	grpcServer := grpc.NewServer()
-	pb_auth_service.RegisterSimpleBankServer(grpcServer, server)
+
+	pb_auth_service.RegisterSimpleBankServer(grpcServer, serverAuth)
+	pb_balance_service.RegisterBalanceHandleServer(grpcServer, serverBalance)
 	reflection.Register(grpcServer)
 
 	listener, err := net.Listen("tcp", "0.0.0.0:9090")
