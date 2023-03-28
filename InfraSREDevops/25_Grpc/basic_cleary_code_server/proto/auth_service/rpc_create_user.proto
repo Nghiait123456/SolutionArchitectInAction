@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package pb;
+package auth_service;
 import "user.proto";
-option go_package = "grpc_basic/pb/auth_service";
+option go_package = "grpc_basic/pb/pb_auth_service";
 
 message CreateUserRequest {
   string username = 1;
