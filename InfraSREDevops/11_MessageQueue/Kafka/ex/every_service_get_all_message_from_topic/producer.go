@@ -2,15 +2,15 @@ package main
 
 import (
 	"context"
-	kafka "github.com/segmentio/kafka-go"
+	"github.com/segmentio/kafka-go"
 	"log"
 	"time"
 )
 
 func producer() {
 	// to produce messages
-	topic := "my-topic"
-	partition := 0
+	topic := "my-new-topic-test"
+	partition := 2
 
 	conn, err := kafka.DialLeader(context.Background(), "tcp", "localhost:9092", topic, partition)
 	if err != nil {
@@ -30,4 +30,8 @@ func producer() {
 	if err := conn.Close(); err != nil {
 		log.Fatal("failed to close writer:", err)
 	}
+}
+
+func main() {
+	producer()
 }

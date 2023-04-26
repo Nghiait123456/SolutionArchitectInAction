@@ -32,13 +32,13 @@ to the same partition, and Kafka guarantees that any consumer of a given topic-p
 partition's events in exactly the same order as they were written. </br>
 ![partition.png](img%2Fpartition.png)  </br>
 
-## I have an event and want all consumers of that event to receive it, what should I do? <a name="i_have_an_event_and_want_all_consumers_of_that_event_to_receive_it_what_should_i_sdo"></a>
+## I have an event and want all service listen event to receive it, what should I do? <a name="i_have_an_event_and_want_all_consumers_of_that_event_to_receive_it_what_should_i_sdo"></a>
 
-In order for all consumers to receive an event, the events must be sent to the same topic and to the same partitions.
-at the same time all consumers listen to that partition </br>
+Each service can have multiple cosumers and topics can have multiple partitions, I don't care about this. But in order
+for all services to receive an event from the producer, no event is missed, each service needs to listen for a unique
+GroupId. </br>
 
-The event to be sent to only one partition, it must be sent with the same event key </br>
+Link: https://stackoverflow.com/questions/35561110/can-multiple-kafka-consumers-read-same-message-from-the-partition </br>
 
-todo: implement it?
 
 
