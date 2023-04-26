@@ -39,6 +39,8 @@ for all services to receive an event from the producer, no event is missed, each
 GroupId. </br>
 
 Link: https://stackoverflow.com/questions/35561110/can-multiple-kafka-consumers-read-same-message-from-the-partition </br>
+I have detail ex
+in: https://github.com/Nghiait123456/InfraBackendForBigSolution/tree/master/InfraBackend/11_MessageQueue/Kafka/ex/every_service_get_all_message_from_topic </br>
 
 
 
