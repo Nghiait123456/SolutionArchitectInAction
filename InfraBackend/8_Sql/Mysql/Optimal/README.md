@@ -27,7 +27,7 @@ Lý do nên hạn chế dùng NULL:
    When using ORDER BY, NULL values are presented first, or last if you specify DESC to sort in descending order.
    Aggregate (group) functions such as COUNT(), MIN(), and SUM() ignore NULL values. The exception to this is COUNT(*), which counts rows and not individual column values. For example, the following statement produces two counts.
 
-Lý do nên dùng:
+Lý do nên dùng:  
 1) Mysql lưu Null với 1 byte dữ liệu, là điểm cộng khi sử dụng Nullable
 
 
