@@ -2,11 +2,18 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"github.com/segmentio/kafka-go"
 	"log"
 	"time"
 )
+
+// Tạo ra một struct để lưu trữ dữ liệu JSON của bạn.
+type DataSend struct {
+	Data1 string `json:"data1"`
+	Data2 int    `json:"data2"`
+}
 
 func producer() {
 	// to produce messages
@@ -21,13 +28,29 @@ func producer() {
 
 	fmt.Println("start send message")
 	conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
+	dataS := DataSend{
+		Data1: "data1",
+		Data2: 10,
+	}
+	// Chuyển đổi đối tượng JSON sang mảng byte.
+	jsonData, err := json.Marshal(dataS)
+	if err != nil {
+		panic(err)
+	}
+
 	_, err = conn.WriteMessages(
 		kafka.Message{
-			Key:   []byte("test"),
-			Value: []byte("one!"),
+			Key:   []byte("one"),
+			Value: jsonData,
 		},
-		kafka.Message{Value: []byte("two!")},
-		kafka.Message{Value: []byte("three!")},
+		kafka.Message{
+			Key:   []byte("true"),
+			Value: jsonData,
+		},
+		kafka.Message{
+			Key:   []byte("three"),
+			Value: jsonData,
+		},
 	)
 
 	fmt.Println("sen message done")

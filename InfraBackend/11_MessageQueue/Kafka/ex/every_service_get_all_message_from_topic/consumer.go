@@ -2,11 +2,17 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"github.com/segmentio/kafka-go"
 	"log"
 	"time"
 )
+
+type DataRead struct {
+	Data1 string `json:"data1"`
+	Data2 int    `json:"data2"`
+}
 
 func consumer() {
 	r := kafka.NewReader(kafka.ReaderConfig{
@@ -22,7 +28,16 @@ func consumer() {
 		if err != nil {
 			break
 		}
+
 		fmt.Printf("message at topic: %v/partition: %v /offset: %v /key: %s , value  = %s\n", m.Topic, m.Partition, m.Offset, string(m.Key), string(m.Value))
+		var out DataRead
+		errUJ := json.Unmarshal(m.Value, &out)
+		if errUJ != nil {
+			fmt.Println("Error:", errUJ)
+		}
+
+		fmt.Println("data1", out.Data1)
+		fmt.Println("data2", out.Data1)
 	}
 
 	if err := r.Close(); err != nil {
