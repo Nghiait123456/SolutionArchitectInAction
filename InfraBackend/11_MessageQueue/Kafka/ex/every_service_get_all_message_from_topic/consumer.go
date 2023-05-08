@@ -22,7 +22,7 @@ func consumer() {
 		if err != nil {
 			break
 		}
-		fmt.Printf("message at topic/partition/offset %v/%v/%v: %s = %s\n", m.Topic, m.Partition, m.Offset, string(m.Key), string(m.Value))
+		fmt.Printf("message at topic: %v/partition: %v /offset: %v /key: %s , value  = %s\n", m.Topic, m.Partition, m.Offset, string(m.Key), string(m.Value))
 	}
 
 	if err := r.Close(); err != nil {
