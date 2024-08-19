@@ -27,25 +27,18 @@ happy and relax with it. </br>
 
 ## Highlight <a name="highlight"></a>
 
-## Facebook Smart Traffic And LB <a name="facebook-smart-traffic"></a>
+## Cải tiến hệ thống đăng đơn và truy xuat don với tidb, golang, job   <a name="facebook-smart-traffic"></a>
 
-Please
-view: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/tree/master/InfraSREDevops/22_Network#facebook-smart-traffic-and-lb </br>
+## Xử lý incident connect pool php   <a name="facebook-smart-traffic"></a>
 
-## How Facebook Disappeared From The Internet And Down <a name="how-facebook-disappeared-from-the-internet-and-down"></a>
+## Xử lý downtime grpc    <a name="facebook-smart-traffic"></a>
 
-Please
-view: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/tree/master/InfraSREDevops/22_Network#how-facebook-disappeared-from-the-internet-and-down </br>
+## Hệ thống tổng hợp hiệu năng cao và data lớn vs es     <a name="facebook-smart-traffic"></a>
 
-## All Of Network And Ten Minute <a name="all-of-network-in-ten-minute"></a>
 
-Please
-view: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/tree/master/InfraSREDevops/22_Network#all-of-network-in-ten-minute </br>
+## build socket cho hàng trieu user
 
-## How to reduce network delay in the problem of users lying around the world  <a name="how-to-reduce-network-delay-in-the-problem-of-users-lying-around-the-world"></a>
-Please
-view: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/tree/master/InfraSREDevops/22_Network#how-to-reduce-network-delay-in-the-problem-of-users-lying-around-the-world </br>
 
-## Menu <a name="menu"></a>
-## Infra SRE Devops <a name="infra-sre-devops"></a>
-Please view: https://github.com/Nghiait123456/InfraSREDevopsBackendForBigProject/tree/master/InfraSREDevops </br>
+
+
+
